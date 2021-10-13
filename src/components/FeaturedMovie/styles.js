@@ -26,6 +26,9 @@ export const Horizontal = styled.div`
 export const Name = styled.h1`
     font-size: 60px;
     font-weight: bold;
+    @media(max-width: 768px) {
+        font-size: 40px;
+    }
 `;
 
 export const Info = styled.div`
@@ -34,6 +37,9 @@ export const Info = styled.div`
     margin-top: 15px;
     span {
         margin-right: 15px;
+    }
+    @media(max-width: 768px) {
+        font-size: 16px;
     }
 `;
 
@@ -51,6 +57,11 @@ export const Description = styled.p`
     display: -webkit-box;
     -webkit-line-clamp: 5; // Quantidade de linhas
     -webkit-box-orient: vertical;
+    @media(max-width: 768px) {
+        font-size: 16px;
+        max-width: 100%;
+        margin-right: 30px;
+    }
 `;
 
 export const BtnContainer = styled.div`
@@ -79,4 +90,7 @@ export const Genres = styled.div`
     margin-top: 15px;
     font-size: 18px;
     color: #999;
+    @media(max-width: 768px) {
+        font-size: 16px;
+    }
 `;

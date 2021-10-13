@@ -51,4 +51,7 @@ export const Indicator = styled.button`
     cursor: pointer;
     border: none;
     outline: none;
+    @media(max-width: 768px) {
+        opacity: 1;
+    }
 `;
