@@ -7,6 +7,7 @@ import {
     FooterLink,
     ServiceCodeButton,
     CopyrightContainer,
+    CopyrightContainerTop,
     CopyrightInstance
 } from './styles'
 import FacebookIcon from '@material-ui/icons/Facebook';
@@ -70,8 +71,13 @@ export default function Footer() {
                 <ServiceCodeButton id="serviceCode" onClick={() => document.querySelector("button#serviceCode").innerText = "753-740"}>Código do serviço</ServiceCodeButton>
             </div>
             <CopyrightContainer>
-                <span>© 1997-2021 Netflix, Inc.&nbsp;&nbsp;‎</span>
-                <CopyrightInstance>{"{0745f196-3810-4da7-8fbc-4faa5633b1e8}"}</CopyrightInstance>
+                <CopyrightContainerTop>
+                    <span>© 1997-2021 Netflix, Inc.&nbsp;&nbsp;‎</span>
+                    <CopyrightInstance>{"{0745f196-3810-4da7-8fbc-4faa5633b1e8}"}</CopyrightInstance>
+                </CopyrightContainerTop>
+                <div style={{ fontSize: 13 }}>
+                    <span>Clone feito por Fellipe Utaka</span>
+                </div>
             </CopyrightContainer>
         </Container>
     )

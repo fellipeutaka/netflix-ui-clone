@@ -63,11 +63,15 @@ export const ServiceCodeButton = styled.button`
 `;
 
 export const CopyrightContainer = styled.div`
+    display: flex;
+    justify-content: space-between;
+`;
+
+export const CopyrightContainerTop = styled.div`
     font-size: 11px;
     margin-bottom: 15px;
 `;
 
 export const CopyrightInstance = styled.span`
     padding: 0 4px;
-    display: inline-block;
 `;
