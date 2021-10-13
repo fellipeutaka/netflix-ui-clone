@@ -2,6 +2,9 @@ import styled from "styled-components"
 
 export const Container = styled.div`
     margin-bottom: 30px;
+    &:hover button {
+        opacity: 1;
+    }
 `;
 
 export const Title = styled.h2`
@@ -14,7 +17,7 @@ export const ListArea = styled.div`
 `;
 
 export const List = styled.div`
-    width: 9999999999px;
+    transition: margin-left ease .5s;
 `;
 
 export const Item = styled.div`
@@ -30,4 +33,22 @@ export const ItemImage = styled.img`
     &:hover {
         transform: scale(1);
     }
+`;
+
+export const Indicator = styled.button`
+    position: absolute;
+    width: 40px;
+    height: 225px;
+    color: #fff;
+    transition: opacity .3s ease;
+    opacity: 0;
+    background-color: rgba(0, 0, 0, 0.6);
+    z-index: 99;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+    cursor: pointer;
+    border: none;
+    outline: none;
 `;
