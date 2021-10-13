@@ -3,6 +3,7 @@ import Tmdb from './Tmdb'
 import FeaturedMovie from './components/FeaturedMovie'
 import MovieRow from './components/MovieRow'
 import Header from './components/Header'
+import Footer from './components/Footer'
 
 export default function App() {
   const [movieList, setMovieList] = useState([])
@@ -30,6 +31,7 @@ export default function App() {
           <MovieRow title={item.title} items={item.items} key={index} />
         ))}
       </section>
+      <Footer />
       {movieList.length <= 0 && <div className="loading" style={{
         width: '100%',
         height: '100vh',
