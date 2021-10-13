@@ -30,6 +30,24 @@ export default function App() {
           <MovieRow title={item.title} items={item.items} key={index} />
         ))}
       </section>
+      {movieList.length <= 0 && <div className="loading" style={{
+        width: '100%',
+        height: '100vh',
+        display: 'flex',
+        justifyContent: 'center',
+        alignItems: 'center',
+        position: 'fixed',
+        top: 0,
+        left: 0,
+        right: 0,
+        bottom: 0,
+        zIndex: 99
+      }}>
+        <img src="https://media.filmelier.com/noticias/br/2020/03/Netflix_LoadTime.gif" alt="Loading" style={{
+          width: '100%',
+          height: '100%'
+        }} />
+      </div>}
     </div>
   )
 }
