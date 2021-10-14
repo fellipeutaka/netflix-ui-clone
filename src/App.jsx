@@ -31,7 +31,6 @@ export default function App() {
           <MovieRow title={item.title} items={item.items} key={index} />
         ))}
       </section>
-      <Footer />
       {movieList.length <= 0 && <div className="loading" style={{
         width: '100%',
         height: '100vh',
@@ -50,6 +49,7 @@ export default function App() {
           height: '100%'
         }} />
       </div>}
+      <Footer />
     </div>
   )
 }
