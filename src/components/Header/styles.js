@@ -20,3 +20,31 @@ export const Logo = styled.div`
         height: 100%;
     }
 `;
+
+export const UserContainer = styled.div`
+    display: flex;
+    -webkit-box-align: center;
+    align-items: center;
+    -webkit-box-flex: 1;
+    flex-grow: 1;
+    -webkit-box-pack: end;
+    justify-content: flex-end;
+    position: absolute;
+    right: 4%;
+    top: 0;
+    height: 100%;
+`;
+
+export const Profile = styled.a`
+    width: 100%;
+    display: flex;
+    -webkit-box-align: center;
+    align-items: center;
+    span {
+        transform: rotate(0deg);
+        transition: transform .25s ease-in;
+    }
+    &:hover span {
+        transform: rotate(180deg);
+    }
+`;
