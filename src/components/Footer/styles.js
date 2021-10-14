@@ -2,7 +2,7 @@ import styled from "styled-components"
 
 export const Container = styled.footer`
     max-width: 980px;
-    margin: 20px auto 0;
+    margin: 90px auto 0;
     padding: 0 4%;
     color: gray;
 `;
