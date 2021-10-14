@@ -21,10 +21,10 @@ export default function MovieRow({ title, items }) {
     return (
         <Container>
             <Title>{title}</Title>
-            <Indicator style={{ left: 0 }} onClick={handleLeftIndicator}>
+            <Indicator aria-label="Voltar" style={{ left: 0 }} onClick={handleLeftIndicator}>
                 <NavigateBeforeIcon style={{ fontSize: 50 }} />
             </Indicator>
-            <Indicator style={{ right: 0 }} onClick={handleRightIndicator}>
+            <Indicator aria-label="Avançar" style={{ right: 0 }} onClick={handleRightIndicator}>
                 <NavigateNextIcon style={{ fontSize: 50 }} />
             </Indicator>
             <ListArea>
@@ -34,7 +34,7 @@ export default function MovieRow({ title, items }) {
                 }}>
                     {items.results.length > 0 && items.results.map((item, index) => (
                         <Item key={index}>
-                            <ItemImage src={`https://image.tmdb.org/t/p/w300${item.poster_path}`} alt={item.original_title} />
+                            <ItemImage src={`https://image.tmdb.org/t/p/w300${item.poster_path}`} alt={item.title} />
                         </Item>
                     ))}
                 </List>

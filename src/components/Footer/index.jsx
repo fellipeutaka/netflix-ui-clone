@@ -22,7 +22,7 @@ export default function Footer() {
                 <SocialMediaLink
                     href="https://www.facebook.com/netflixbrasil"
                     target="_blank"
-                    rel="nofollow"
+                    rel="nofollow noopener"
                     aria-label="Facebook"
                 >
                     <FacebookIcon style={{ color: "gray", fontSize: 35 }} />
@@ -30,7 +30,7 @@ export default function Footer() {
                 <SocialMediaLink
                     href="https://www.instagram.com/NetflixBrasil"
                     target="_blank"
-                    rel="nofollow"
+                    rel="nofollow noopener"
                     aria-label="Instagram"
                 >
                     <InstagramIcon style={{ color: "gray", fontSize: 35 }} />
@@ -38,7 +38,7 @@ export default function Footer() {
                 <SocialMediaLink
                     href="https://twitter.com/NetflixBrasil"
                     target="_blank"
-                    rel="nofollow"
+                    rel="nofollow noopener"
                     aria-label="Twitter"
                 >
                     <TwitterIcon style={{ color: "gray", fontSize: 35 }} />
@@ -46,7 +46,7 @@ export default function Footer() {
                 <SocialMediaLink
                     href="https://www.youtube.com/user/NetflixBRA"
                     target="_blank"
-                    rel="nofollow"
+                    rel="nofollow noopener"
                     aria-label="YouTube"
                 >
                     <YouTubeIcon style={{ color: "gray", fontSize: 35 }} />
