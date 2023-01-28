@@ -1,4 +1,4 @@
-import { Movie } from "./Movie";
+import type { Movie } from "./Movie";
 
 export type MovieItem = {
   page: number;

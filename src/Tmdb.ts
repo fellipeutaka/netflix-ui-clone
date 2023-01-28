@@ -1,5 +1,5 @@
-import { MovieInfo } from "./types/MovieInfo";
-import { MovieItem } from "./types/MovieItem";
+import { MovieInfo } from "./@types/MovieInfo";
+import { MovieItem } from "./@types/MovieItem";
 
 const API_KEY = "34ace716e639973b381f7886b6a7cec7";
 const API_BASE = "https://api.themoviedb.org/3";
@@ -9,7 +9,7 @@ async function basicFetch<T>(endpoint: string): Promise<T> {
   return await req.json();
 }
 
-const tmdb = {
+export const tmdb = {
   getHomeList: async () => {
     return [
       {
@@ -81,5 +81,3 @@ const tmdb = {
     }
   },
 };
-
-export default tmdb;

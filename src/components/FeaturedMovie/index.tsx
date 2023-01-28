@@ -1,4 +1,4 @@
-import { MovieInfo } from "../../types/MovieInfo";
+import { MovieInfo } from "@netflix-ui-clone/@types/MovieInfo";
 import {
   BtnContainer,
   Description,
@@ -15,7 +15,7 @@ type FeaturedMovieProps = {
   item: MovieInfo;
 };
 
-export default function FeaturedMovie({ item }: FeaturedMovieProps) {
+export function FeaturedMovie({ item }: FeaturedMovieProps) {
   const firstDate = new Date(item.first_air_date);
   function getGenres() {
     const genres = [];
@@ -41,10 +41,8 @@ export default function FeaturedMovie({ item }: FeaturedMovieProps) {
           </Info>
           <Description>{item.overview}</Description>
           <BtnContainer>
-            <button onClick={() => console.log("Assistir")}>► Assistir</button>
-            <button onClick={() => console.log("Minha lista")}>
-              + Minha lista
-            </button>
+            <button>► Assistir</button>
+            <button>+ Minha lista</button>
           </BtnContainer>
           <Genres>
             <strong>Gêneros:</strong> {getGenres()}

@@ -1,7 +1,9 @@
-import FacebookIcon from "@material-ui/icons/Facebook";
-import InstagramIcon from "@material-ui/icons/Instagram";
-import TwitterIcon from "@material-ui/icons/Twitter";
-import YouTubeIcon from "@material-ui/icons/YouTube";
+import {
+  FaFacebookSquare,
+  FaInstagram,
+  FaTwitter,
+  FaYoutube,
+} from "react-icons/fa";
 import { useRef } from "react";
 import {
   Container,
@@ -15,7 +17,7 @@ import {
   SocialMediaLink,
 } from "./styles";
 
-export default function Footer() {
+export function Footer() {
   const serviceCodeRef = useRef<HTMLButtonElement>(null);
 
   return (
@@ -27,7 +29,7 @@ export default function Footer() {
           rel="nofollow noopener"
           aria-label="Facebook"
         >
-          <FacebookIcon style={{ color: "gray", fontSize: 35 }} />
+          <FaFacebookSquare style={{ color: "gray", fontSize: 35 }} />
         </SocialMediaLink>
         <SocialMediaLink
           href="https://www.instagram.com/NetflixBrasil"
@@ -35,7 +37,7 @@ export default function Footer() {
           rel="nofollow noopener"
           aria-label="Instagram"
         >
-          <InstagramIcon style={{ color: "gray", fontSize: 35 }} />
+          <FaInstagram style={{ color: "gray", fontSize: 35 }} />
         </SocialMediaLink>
         <SocialMediaLink
           href="https://twitter.com/NetflixBrasil"
@@ -43,7 +45,7 @@ export default function Footer() {
           rel="nofollow noopener"
           aria-label="Twitter"
         >
-          <TwitterIcon style={{ color: "gray", fontSize: 35 }} />
+          <FaTwitter style={{ color: "gray", fontSize: 35 }} />
         </SocialMediaLink>
         <SocialMediaLink
           href="https://www.youtube.com/user/NetflixBRA"
@@ -51,7 +53,7 @@ export default function Footer() {
           rel="nofollow noopener"
           aria-label="YouTube"
         >
-          <YouTubeIcon style={{ color: "gray", fontSize: 35 }} />
+          <FaYoutube style={{ color: "gray", fontSize: 35 }} />
         </SocialMediaLink>
       </SocialMediaContainer>
       <FooterLinkContainer>

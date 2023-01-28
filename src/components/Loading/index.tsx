@@ -1,6 +1,6 @@
 import { Container, LoadingImage } from "./styles";
 
-export default function Loading() {
+export function Loading() {
   return (
     <Container>
       <LoadingImage

@@ -1,10 +1,8 @@
-import ArrowDropDownIcon from "@material-ui/icons/ArrowDropDown";
-import NotificationsIcon from "@material-ui/icons/Notifications";
-import SearchIcon from "@material-ui/icons/Search";
+import { AiOutlineSearch, AiFillBell, AiFillCaretDown } from "react-icons/ai";
 import { useEffect, useRef } from "react";
 import { Container, Logo, Profile, UserContainer } from "./styles";
 
-export default function Header() {
+export function Header() {
   const headerRef = useRef<HTMLHeadingElement>(null);
   useEffect(() => {
     function toggleHeader() {
@@ -39,7 +37,7 @@ export default function Header() {
             cursor: "pointer",
           }}
         >
-          <SearchIcon style={{ fontSize: 30, color: "#fff" }} />
+          <AiOutlineSearch style={{ fontSize: 30, color: "#fff" }} />
         </button>
         <button
           aria-label="Notificações"
@@ -50,15 +48,15 @@ export default function Header() {
             cursor: "pointer",
           }}
         >
-          <NotificationsIcon style={{ fontSize: 30, color: "#fff" }} />
+          <AiFillBell style={{ fontSize: 30, color: "#fff" }} />
         </button>
         <Profile href="/YourAccount">
           <img
             src="https://occ-0-2594-1740.1.nflxso.net/dnm/api/v6/K6hjPJd6cR6FpVELC5Pd6ovHRSk/AAAABbme8JMz4rEKFJhtzpOKWFJ_6qX-0y5wwWyYvBhWS0VKFLa289dZ5zvRBggmFVWVPL2AAYE8xevD4jjLZjWumNo.png?r=a41"
             alt="Usuário"
           />
-          <span style={{}}>
-            <ArrowDropDownIcon style={{ color: "#fff" }} />
+          <span>
+            <AiFillCaretDown style={{ color: "#fff" }} />
           </span>
         </Profile>
       </UserContainer>

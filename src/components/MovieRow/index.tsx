@@ -1,7 +1,6 @@
-import NavigateBeforeIcon from "@material-ui/icons/NavigateBefore";
-import NavigateNextIcon from "@material-ui/icons/NavigateNext";
+import { AiOutlineLeft, AiOutlineRight } from "react-icons/ai";
+import { MovieItem } from "@netflix-ui-clone/@types/MovieItem";
 import { useState } from "react";
-import { MovieItem } from "../../types/MovieItem";
 import {
   Container,
   Indicator,
@@ -17,7 +16,7 @@ type MovieRowProps = {
   items: MovieItem;
 };
 
-export default function MovieRow({ title, items }: MovieRowProps) {
+export function MovieRow({ title, items }: MovieRowProps) {
   const [marginLeft, setMarginLeft] = useState(0);
   function handleLeftIndicator() {
     const newMargin = marginLeft + Math.round(window.innerWidth / 2);
@@ -40,14 +39,14 @@ export default function MovieRow({ title, items }: MovieRowProps) {
         style={{ left: 0 }}
         onClick={handleLeftIndicator}
       >
-        <NavigateBeforeIcon style={{ fontSize: 50 }} />
+        <AiOutlineLeft style={{ fontSize: 50 }} />
       </Indicator>
       <Indicator
         aria-label="Avançar"
         style={{ right: 0 }}
         onClick={handleRightIndicator}
       >
-        <NavigateNextIcon style={{ fontSize: 50 }} />
+        <AiOutlineRight style={{ fontSize: 50 }} />
       </Indicator>
       <ListArea>
         <List
