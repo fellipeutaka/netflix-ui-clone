@@ -6,6 +6,7 @@ import { Footer } from "./components/Footer";
 import { Header } from "./components/Header";
 import { Loading } from "./components/Loading";
 import { MovieRow } from "./components/MovieRow";
+import { RenderIf } from "./components/utils/RenderIf";
 import { tmdb } from "./Tmdb";
 
 export function App() {
@@ -31,13 +32,17 @@ export function App() {
   return (
     <>
       <Header />
-      {featuredData && <FeaturedMovie item={featuredData} />}
+      <RenderIf condition={Boolean(featuredData)}>
+        <FeaturedMovie item={featuredData!} />
+      </RenderIf>
       <section className="lists" style={{ marginTop: -150 }}>
         {movieList.map((item, index) => (
           <MovieRow title={item.title} items={item.items} key={index} />
         ))}
       </section>
-      {movieList.length <= 0 && <Loading />}
+      <RenderIf condition={movieList.length <= 0}>
+        <Loading />
+      </RenderIf>
       <Footer />
     </>
   );
