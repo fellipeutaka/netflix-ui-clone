@@ -1,48 +1,151 @@
-import { useEffect, useState } from "react";
+import {
+  QueryFunctionContext,
+  useQueries,
+  useQuery,
+} from "@tanstack/react-query";
 import { MovieInfo } from "./@types/MovieInfo";
-import { MovieList } from "./@types/MovieList";
+import type { MovieItem } from "./@types/MovieItem";
 import { FeaturedMovie } from "./components/FeaturedMovie";
 import { Footer } from "./components/Footer";
 import { Header } from "./components/Header";
 import { Loading } from "./components/Loading";
 import { MovieRow } from "./components/MovieRow";
-import { RenderIf } from "./components/utils/RenderIf";
-import { tmdb } from "./Tmdb";
+import { api } from "./lib/axios";
+import { sample } from "./utils/sample";
 
 export function App() {
-  const [movieList, setMovieList] = useState<MovieList[]>([]);
-  const [featuredData, setFeaturedData] = useState<MovieInfo | null>(null);
-
-  useEffect(() => {
-    (async () => {
-      const list = await tmdb.getHomeList();
-      setMovieList(list);
-      const originals = list.filter((item) => item.slug === "originals");
-      const randomChosen = Math.floor(
-        Math.random() * (originals[0].items.results.length - 1)
+  const movieList = useQueries({
+    queries: [
+      {
+        queryKey: ["/discover/tv?with_network=213&language=pt-BR"],
+        queryFn: async ({ queryKey, signal }: QueryFunctionContext) => {
+          const { data: items } = await api.get<MovieItem>(
+            String(queryKey[0]),
+            {
+              signal,
+            }
+          );
+          return {
+            slug: "originals",
+            title: "Originais da Netflix",
+            items,
+          };
+        },
+      },
+      {
+        queryKey: ["/trending/all/week?language=pt-BR"],
+        queryFn: async ({ queryKey, signal }: QueryFunctionContext) => {
+          const { data: items } = await api.get<MovieItem>(
+            String(queryKey[0]),
+            {
+              signal,
+            }
+          );
+          return { slug: "trending", title: "Recomendados para você", items };
+        },
+      },
+      {
+        queryKey: ["/movie/top_rated?language=pt-BR"],
+        queryFn: async ({ queryKey, signal }: QueryFunctionContext) => {
+          const { data: items } = await api.get<MovieItem>(
+            String(queryKey[0]),
+            {
+              signal,
+            }
+          );
+          return { slug: "toprated", title: "Em alta", items };
+        },
+      },
+      {
+        queryKey: ["/discover/movie?with_genres=28&language=pt-BR"],
+        queryFn: async ({ queryKey, signal }: QueryFunctionContext) => {
+          const { data: items } = await api.get<MovieItem>(
+            String(queryKey[0]),
+            {
+              signal,
+            }
+          );
+          return { slug: "action", title: "Ação", items };
+        },
+      },
+      {
+        queryKey: ["/discover/movie?with_genres=35&language=pt-BR"],
+        queryFn: async ({ queryKey, signal }: QueryFunctionContext) => {
+          const { data: items } = await api.get<MovieItem>(
+            String(queryKey[0]),
+            {
+              signal,
+            }
+          );
+          return { slug: "comedy", title: "Comédia", items };
+        },
+      },
+      {
+        queryKey: ["/discover/movie?with_genres=27&language=pt-BR"],
+        queryFn: async ({ queryKey, signal }: QueryFunctionContext) => {
+          const { data: items } = await api.get<MovieItem>(
+            String(queryKey[0]),
+            {
+              signal,
+            }
+          );
+          return { slug: "horror", title: "Terror", items };
+        },
+      },
+      {
+        queryKey: ["/discover/movie?with_genres=10749&language=pt-BR"],
+        queryFn: async ({ queryKey, signal }: QueryFunctionContext) => {
+          const { data: items } = await api.get<MovieItem>(
+            String(queryKey[0]),
+            {
+              signal,
+            }
+          );
+          return { slug: "romance", title: "Romance", items };
+        },
+      },
+      {
+        queryKey: ["/discover/movie?with_genres=99&language=pt-BR"],
+        queryFn: async ({ queryKey, signal }: QueryFunctionContext) => {
+          const { data: items } = await api.get<MovieItem>(
+            String(queryKey[0]),
+            {
+              signal,
+            }
+          );
+          return { slug: "documentary", title: "Documentários", items };
+        },
+      },
+    ],
+  });
+  const randomShow = sample(movieList[0].data?.items.results);
+  const featuredShow = useQuery({
+    queryKey: ["featuredShow"],
+    queryFn: async ({ signal }: QueryFunctionContext) => {
+      const { data } = await api.get<MovieInfo>(
+        `/tv/${randomShow?.id}?language=pt-BR`,
+        {
+          signal,
+        }
       );
-      const chosen = originals[0].items.results[randomChosen];
-      const chosenInfo = await tmdb.getMovieInfo(String(chosen.id), "tv");
-      if (chosenInfo) {
-        setFeaturedData(chosenInfo);
-      }
-    })();
-  }, []);
+      return data;
+    },
+    enabled: Boolean(randomShow),
+  });
+
+  if (movieList.some((movie) => movie.isLoading) || featuredShow.isLoading) {
+    return <Loading />;
+  }
 
   return (
     <>
       <Header />
-      <RenderIf condition={Boolean(featuredData)}>
-        <FeaturedMovie item={featuredData!} />
-      </RenderIf>
-      <section className="lists" style={{ marginTop: -150 }}>
-        {movieList.map((item, index) => (
-          <MovieRow title={item.title} items={item.items} key={index} />
+      <FeaturedMovie item={featuredShow.data!} />
+      <section style={{ marginTop: "-9rem" }}>
+        {movieList.map(({ data }) => (
+          <MovieRow key={data!.slug} title={data!.title} items={data!.items} />
         ))}
       </section>
-      <RenderIf condition={movieList.length <= 0}>
-        <Loading />
-      </RenderIf>
       <Footer />
     </>
   );
