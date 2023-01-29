@@ -1,4 +1,3 @@
-import { useRef } from "react";
 import {
   FaFacebookSquare,
   FaInstagram,
@@ -19,8 +18,6 @@ import {
 } from "./styles";
 
 export function Footer() {
-  const serviceCodeRef = useRef<HTMLButtonElement>(null);
-
   return (
     <Container>
       <SocialMediaContainer>
@@ -30,7 +27,7 @@ export function Footer() {
           rel="nofollow noopener"
           aria-label="Facebook"
         >
-          <FaFacebookSquare style={{ color: "gray", fontSize: 35 }} />
+          <FaFacebookSquare size={36} />
         </SocialMediaLink>
         <SocialMediaLink
           href="https://www.instagram.com/NetflixBrasil"
@@ -38,7 +35,7 @@ export function Footer() {
           rel="nofollow noopener"
           aria-label="Instagram"
         >
-          <FaInstagram style={{ color: "gray", fontSize: 35 }} />
+          <FaInstagram size={36} />
         </SocialMediaLink>
         <SocialMediaLink
           href="https://twitter.com/NetflixBrasil"
@@ -46,7 +43,7 @@ export function Footer() {
           rel="nofollow noopener"
           aria-label="Twitter"
         >
-          <FaTwitter style={{ color: "gray", fontSize: 35 }} />
+          <FaTwitter size={36} />
         </SocialMediaLink>
         <SocialMediaLink
           href="https://www.youtube.com/user/NetflixBRA"
@@ -54,7 +51,7 @@ export function Footer() {
           rel="nofollow noopener"
           aria-label="YouTube"
         >
-          <FaYoutube style={{ color: "gray", fontSize: 35 }} />
+          <FaYoutube size={36} />
         </SocialMediaLink>
       </SocialMediaContainer>
       <FooterLinkContainer>
@@ -65,7 +62,7 @@ export function Footer() {
         </FooterLink>
         <FooterLink>
           <a href="/browse/audio-description">
-            <span>Audiodescrição</span>
+            <span>Áudio descrição</span>
           </a>
         </FooterLink>
         <FooterLink>
@@ -126,22 +123,19 @@ export function Footer() {
       </FooterLinkContainer>
       <div>
         <ServiceCodeButton
-          ref={serviceCodeRef}
-          onClick={() => (serviceCodeRef.current!.innerText = "753-740")}
+          onClick={(e) => (e.currentTarget.innerText = "753-740")}
         >
           Código do serviço
         </ServiceCodeButton>
       </div>
       <CopyrightContainer>
         <CopyrightContainerTop>
-          <span>© 1997-2021 Netflix, Inc.&nbsp;&nbsp;‎</span>
+          <span>© 1997-2021 Netflix, Inc.</span>
           <CopyrightInstance>
             {"{0745f196-3810-4da7-8fbc-4faa5633b1e8}"}
           </CopyrightInstance>
         </CopyrightContainerTop>
-        <div style={{ fontSize: 13 }}>
-          <span>Clone feito por Fellipe Utaka ❤️</span>
-        </div>
+        <span>Clone feito por Fellipe Utaka ❤️</span>
       </CopyrightContainer>
     </Container>
   );

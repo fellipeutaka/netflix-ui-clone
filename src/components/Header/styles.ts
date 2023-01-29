@@ -23,24 +23,29 @@ export const Logo = styled.div`
 
 export const UserContainer = styled.div`
   display: flex;
-  -webkit-box-align: center;
   align-items: center;
-  -webkit-box-flex: 1;
   flex-grow: 1;
-  -webkit-box-pack: end;
   justify-content: flex-end;
   position: absolute;
   right: 4%;
   top: 0;
   height: 100%;
+
+  button {
+    background-color: transparent;
+    border: none;
+    color: white;
+    margin-right: 1rem;
+    cursor: pointer;
+  }
 `;
 
 export const Profile = styled.a`
   width: 100%;
   display: flex;
-  -webkit-box-align: center;
   align-items: center;
   span {
+    color: white;
     transform: rotate(0deg);
     transition: transform 0.25s ease-in;
   }

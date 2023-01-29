@@ -10,7 +10,7 @@ import { FeaturedMovie } from "./components/FeaturedMovie";
 import { Footer } from "./components/Footer";
 import { Header } from "./components/Header";
 import { Loading } from "./components/Loading";
-import { MovieRow } from "./components/MovieRow";
+import { MovieList } from "./components/MovieList";
 import { api } from "./lib/axios";
 import { sample } from "./utils/sample";
 
@@ -142,11 +142,13 @@ export function App() {
     <>
       <Header />
       <FeaturedMovie item={featuredShow.data!} />
-      <section style={{ marginTop: "-9rem" }}>
-        {movieList.map(({ data }) => (
-          <MovieRow key={data!.slug} title={data!.title} items={data!.items} />
-        ))}
-      </section>
+      <MovieList
+        data={movieList.map(({ data }) => ({
+          title: data!.title,
+          slug: data!.slug,
+          items: data!.items,
+        }))}
+      />
       <Footer />
     </>
   );

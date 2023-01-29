@@ -15,6 +15,7 @@ export const SocialMediaContainer = styled.div`
 export const SocialMediaLink = styled.a`
   margin-right: 15px;
   text-decoration: none;
+  color: gray;
 `;
 
 export const FooterLinkContainer = styled.ul`
@@ -65,13 +66,13 @@ export const ServiceCodeButton = styled.button`
 export const CopyrightContainer = styled.div`
   display: flex;
   justify-content: space-between;
+  font-size: 0.75rem;
 `;
 
 export const CopyrightContainerTop = styled.div`
-  font-size: 11px;
-  margin-bottom: 15px;
+  margin-bottom: 1rem;
 `;
 
 export const CopyrightInstance = styled.span`
-  padding: 0 4px;
+  margin-inline: 0.25rem;
 `;

@@ -20,17 +20,22 @@ type MovieRowProps = {
 
 export function MovieRow({ title, items }: MovieRowProps) {
   const [marginLeft, setMarginLeft] = useState(0);
+
   function handleLeftIndicator() {
     const newMargin = marginLeft + Math.round(window.innerWidth / 2);
     setMarginLeft(newMargin > 0 ? 0 : newMargin);
   }
+
   function handleRightIndicator() {
-    const x = marginLeft - Math.round(window.innerWidth / 2);
-    const listWidth = items.results.length * 150;
-    if (window.innerWidth - listWidth > x) {
+    const newMargin = marginLeft - Math.round(window.innerWidth / 2);
+    const movieWidth = 150;
+    const listWidth = items.results.length * movieWidth;
+
+    if (window.innerWidth - listWidth > newMargin) {
       setMarginLeft(window.innerWidth - listWidth - 60);
+    } else {
+      setMarginLeft(newMargin);
     }
-    setMarginLeft(x);
   }
 
   return (
@@ -41,14 +46,14 @@ export function MovieRow({ title, items }: MovieRowProps) {
         style={{ left: 0 }}
         onClick={handleLeftIndicator}
       >
-        <AiOutlineLeft style={{ fontSize: 50 }} />
+        <AiOutlineLeft size={48} />
       </Indicator>
       <Indicator
         aria-label="Avançar"
         style={{ right: 0 }}
         onClick={handleRightIndicator}
       >
-        <AiOutlineRight style={{ fontSize: 50 }} />
+        <AiOutlineRight size={48} />
       </Indicator>
       <ListArea>
         <List
@@ -58,8 +63,8 @@ export function MovieRow({ title, items }: MovieRowProps) {
           }}
         >
           {items.results.length > 0 &&
-            items.results.map((item, index) => (
-              <Item key={index}>
+            items.results.map((item) => (
+              <Item key={item.id}>
                 <ItemImage
                   src={`https://image.tmdb.org/t/p/w300${item.poster_path}`}
                   alt={item.title}

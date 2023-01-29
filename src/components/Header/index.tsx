@@ -29,27 +29,11 @@ export function Header() {
         </a>
       </Logo>
       <UserContainer>
-        <button
-          aria-label="Pesquisar"
-          style={{
-            border: "none",
-            background: "transparent",
-            marginRight: 14,
-            cursor: "pointer",
-          }}
-        >
-          <AiOutlineSearch style={{ fontSize: 30, color: "#fff" }} />
+        <button aria-label="Pesquisar">
+          <AiOutlineSearch size={32} />
         </button>
-        <button
-          aria-label="Notificações"
-          style={{
-            border: "none",
-            background: "transparent",
-            marginRight: 15,
-            cursor: "pointer",
-          }}
-        >
-          <AiFillBell style={{ fontSize: 30, color: "#fff" }} />
+        <button aria-label="Notificações">
+          <AiFillBell size={32} />
         </button>
         <Profile href="/YourAccount">
           <img
@@ -57,7 +41,7 @@ export function Header() {
             alt="Usuário"
           />
           <span>
-            <AiFillCaretDown style={{ color: "#fff" }} />
+            <AiFillCaretDown />
           </span>
         </Profile>
       </UserContainer>
