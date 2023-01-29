@@ -1,11 +1,19 @@
 import axios from "axios";
 
-const API_BASE = "https://api.themoviedb.org/3";
-const API_KEY = "34ace716e639973b381f7886b6a7cec7";
+const API_BASE = import.meta.env.VITE_API_BASE;
+const API_TOKEN = import.meta.env.VITE_API_TOKEN;
+
+if (!API_BASE) {
+  throw new Error("Missing VITE_API_BASE in .env");
+}
+
+if (!API_TOKEN) {
+  throw new Error("Missing VITE_API_BASE in .env");
+}
 
 export const api = axios.create({
   baseURL: API_BASE,
-  params: {
-    api_key: API_KEY,
+  headers: {
+    Authorization: `Bearer ${API_TOKEN}`,
   },
 });

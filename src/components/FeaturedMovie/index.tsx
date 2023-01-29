@@ -1,4 +1,5 @@
-import { MovieInfo } from "@netflix-ui-clone/@types/MovieInfo";
+import type { MovieInfo } from "@netflix-ui-clone/@types/MovieInfo";
+import { RenderIf } from "../utils/RenderIf";
 import {
   BtnContainer,
   Description,
@@ -17,13 +18,7 @@ type FeaturedMovieProps = {
 
 export function FeaturedMovie({ item }: FeaturedMovieProps) {
   const firstDate = new Date(item.first_air_date);
-  function getGenres() {
-    const genres = [];
-    for (let i in item.genres) {
-      genres.push(item.genres[i].name);
-    }
-    return genres.join(", ");
-  }
+
   return (
     <Section
       imagePath={`https://image.tmdb.org/t/p/original${item.backdrop_path}`}
@@ -33,7 +28,9 @@ export function FeaturedMovie({ item }: FeaturedMovieProps) {
           <Name>{item.original_name}</Name>
           <Info>
             <Points>{item.vote_average} pontos</Points>
-            <span className="year">{firstDate.getFullYear()}</span>
+            <RenderIf condition={Boolean(firstDate.getFullYear())}>
+              <span className="year">{firstDate.getFullYear()}</span>
+            </RenderIf>
             <span className="seasons">
               {item.number_of_seasons} temporada
               {item.number_of_seasons !== 1 && "s"}
@@ -44,9 +41,12 @@ export function FeaturedMovie({ item }: FeaturedMovieProps) {
             <button>► Assistir</button>
             <button>+ Minha lista</button>
           </BtnContainer>
-          <Genres>
-            <strong>Gêneros:</strong> {getGenres()}
-          </Genres>
+          <RenderIf condition={item.genres.length > 0}>
+            <Genres>
+              <strong>Gêneros:</strong>{" "}
+              {item.genres.map((genre) => genre.name).join(", ")}
+            </Genres>
+          </RenderIf>
         </Horizontal>
       </Vertical>
     </Section>
