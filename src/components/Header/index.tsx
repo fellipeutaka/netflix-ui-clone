@@ -1,5 +1,6 @@
-import { AiOutlineSearch, AiFillBell, AiFillCaretDown } from "react-icons/ai";
 import { useEffect, useRef } from "react";
+import { AiOutlineSearch, AiFillBell, AiFillCaretDown } from "react-icons/ai";
+
 import { Container, Logo, Profile, UserContainer } from "./styles";
 
 export function Header() {

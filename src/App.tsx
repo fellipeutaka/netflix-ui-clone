@@ -3,6 +3,7 @@ import {
   useQueries,
   useQuery,
 } from "@tanstack/react-query";
+
 import { MovieInfo } from "./@types/MovieInfo";
 import type { MovieItem } from "./@types/MovieItem";
 import { FeaturedMovie } from "./components/FeaturedMovie";

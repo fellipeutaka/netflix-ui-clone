@@ -12,7 +12,7 @@
       "jsx": true
     }
   },
-  "plugins": ["react"],
+  "plugins": ["react", "import-helpers"],
   "settings": {
     "react": {
       "version": "detect"
@@ -28,6 +28,22 @@
       "warn",
       {
         "allow": ["warn", "error"]
+      }
+    ],
+    "import-helpers/order-imports": [
+      "warn",
+      {
+        "newlinesBetween": "always",
+        "groups": [
+          "/^react/",
+          "module",
+          "/^@netflix-ui-clone/",
+          ["parent", "sibling", "index"]
+        ],
+        "alphabetize": {
+          "order": "asc",
+          "ignoreCase": true
+        }
       }
     ]
   },

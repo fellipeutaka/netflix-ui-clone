@@ -1,4 +1,5 @@
 import type { MovieInfo } from "@netflix-ui-clone/@types/MovieInfo";
+
 import { RenderIf } from "../utils/RenderIf";
 import {
   BtnContainer,

@@ -1,10 +1,11 @@
+import { useRef } from "react";
 import {
   FaFacebookSquare,
   FaInstagram,
   FaTwitter,
   FaYoutube,
 } from "react-icons/fa";
-import { useRef } from "react";
+
 import {
   Container,
   CopyrightContainer,
