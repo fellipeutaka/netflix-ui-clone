@@ -18,7 +18,7 @@
       src="https://img.shields.io/badge/made%20by-Fellipe%20Utaka-%2304D361"
     />
   </a>
-  <a href="https://github.com/fellipeutaka/netflix-ui-clone/commits/master">
+  <a href="https://github.com/fellipeutaka/netflix-ui-clone/commits/main">
     <img
       alt="GitHub last commit"
       src="https://img.shields.io/github/last-commit/fellipeutaka/netflix-ui-clone"
@@ -109,7 +109,7 @@ $ pnpm dev
 
 ## 📝 License
 
-This project is under the MIT license. See the [LICENSE](https://github.com/fellipeutaka/netflix-ui-clone/blob/master/LICENSE.md) for details.
+This project is under the MIT license. See the [LICENSE](https://github.com/fellipeutaka/netflix-ui-clone/blob/main/LICENSE.md) for details.
 
 Made with ♥ by Fellipe Utaka 👋 [Get in touch!](https://www.linkedin.com/in/fellipeutaka/)
 
