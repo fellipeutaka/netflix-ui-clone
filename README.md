@@ -6,7 +6,7 @@
   />
 </h1>
 
-<h4 align="center">✅ Netflix UI Clone ✅</h4>
+<h1 align="center">Netflix UI Clone</h4>
 <p align="center">
   <img
     alt="Repository size"
