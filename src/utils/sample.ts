@@ -1,4 +1,4 @@
-export function sample<T>(array?: Array<T>) {
+export function sample<T>(array?: T[]) {
   if (!array) {
     return undefined;
   }

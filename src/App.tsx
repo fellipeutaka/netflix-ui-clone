@@ -138,17 +138,15 @@ export function App() {
     return <Loading />;
   }
 
+  if (movieList.some((movie) => movie.isError) || featuredShow.isError) {
+    return <b>An error has ocurred!</b>;
+  }
+
   return (
     <>
       <Header />
-      <FeaturedMovie item={featuredShow.data!} />
-      <MovieList
-        data={movieList.map(({ data }) => ({
-          title: data!.title,
-          slug: data!.slug,
-          items: data!.items,
-        }))}
-      />
+      <FeaturedMovie item={featuredShow.data} />
+      <MovieList data={movieList.map(({ data }) => data!)} />
       <Footer />
     </>
   );

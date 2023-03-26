@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { AiOutlineLeft, AiOutlineRight } from "react-icons/ai";
 
-import { MovieItem } from "@netflix-ui-clone/@types/MovieItem";
+import { MovieItem } from "@/@types/MovieItem";
 
 import {
   Container,
@@ -63,14 +63,20 @@ export function MovieRow({ title, items }: MovieRowProps) {
           }}
         >
           {items.results.length > 0 &&
-            items.results.map((item) => (
-              <Item key={item.id}>
-                <ItemImage
-                  src={`https://image.tmdb.org/t/p/w300${item.poster_path}`}
-                  alt={item.title}
-                />
-              </Item>
-            ))}
+            items.results.map((item) => {
+              if (!item.poster_path) {
+                return null;
+              }
+
+              return (
+                <Item key={item.id}>
+                  <ItemImage
+                    src={`https://image.tmdb.org/t/p/w300${item.poster_path}`}
+                    alt={item.title || item.original_title}
+                  />
+                </Item>
+              );
+            })}
         </List>
       </ListArea>
     </Container>

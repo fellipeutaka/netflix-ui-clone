@@ -1,4 +1,4 @@
-import type { MovieInfo } from "@netflix-ui-clone/@types/MovieInfo";
+import type { MovieInfo } from "@/@types/MovieInfo";
 
 import { RenderIf } from "../utils/RenderIf";
 import {

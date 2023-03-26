@@ -1,9 +1,9 @@
-import type { MovieItem } from "@netflix-ui-clone/@types/MovieItem";
+import type { MovieItem } from "@/@types/MovieItem";
 
 import { MovieRow } from "../MovieRow";
 import { MovieListContainer } from "./styles";
 
-type MovieListProps = {
+export type MovieListProps = {
   data: {
     title: string;
     slug: string;

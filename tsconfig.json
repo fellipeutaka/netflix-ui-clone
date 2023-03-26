@@ -17,7 +17,7 @@
     "jsx": "react-jsx",
     "baseUrl": "src",
     "paths": {
-      "@netflix-ui-clone/*": ["./*"]
+      "@/*": ["./*"]
     }
   },
   "include": ["src"],

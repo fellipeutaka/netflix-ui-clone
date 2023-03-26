@@ -5,19 +5,25 @@ import { Container, Logo, Profile, UserContainer } from "./styles";
 
 export function Header() {
   const headerRef = useRef<HTMLHeadingElement>(null);
+
   useEffect(() => {
     function toggleHeader() {
+      if (!headerRef.current) return;
+
       if (window.scrollY > 10) {
-        headerRef.current!.style.backgroundColor = "#141414";
+        headerRef.current.style.backgroundColor = "#141414";
       } else {
-        headerRef.current!.style.backgroundColor = "transparent";
+        headerRef.current.style.backgroundColor = "transparent";
       }
     }
+
     window.addEventListener("scroll", toggleHeader);
+
     return () => {
       window.removeEventListener("scroll", toggleHeader);
     };
   }, []);
+
   return (
     <Container ref={headerRef}>
       <Logo>
